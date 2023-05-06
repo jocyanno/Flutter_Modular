@@ -12,12 +12,22 @@ class HomePage extends StatelessWidget {
         title: const Text('Home Page'),
       ),
       body: Center(
-          child: ElevatedButton(
+          child: Column(
+            children: [
+            Text(Modular.args.data ?? ''),
+            Text(Modular.args.queryParams.toString()),
+            Text(Modular.args.params.toString()),
+            const SizedBox(
+               height: 20,
+            ),
+              ElevatedButton(
         onPressed: () {
-          context.read<PessoaRepository>();
+              context.read<PessoaRepository>();
         },
         child: const Text('Recuperar instancia'),
-      )),
+      ),
+            ],
+          )),
     );
   }
 }
